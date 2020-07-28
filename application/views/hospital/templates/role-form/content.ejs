@@ -1,0 +1,152 @@
+<div class="card card-success">
+    <div class="card-header">
+        <h3 class="card-title">Select <%=pageData.roleName%> Permissions</h3>
+    </div>
+    <form method="POST" action="<%=web.addRole.url%>" id="submitOnServer">
+
+        <div class="card-body">
+            <div id="server-message"></div>
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label class="col-form-label" for="roleName">Role Name:</label>
+                        <input type="text" class="form-control" name="roleName" value="<%=pageData.roleName%>" placeholder="Role Name" required autocomplete="off" <%if(pageData.roleId){%>disabled<%}%> >
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-form-label" for="inputSuccess">Permissions:</label>
+            </div>
+
+            <!-- User Management -->
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">User Management</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="viewUser" name="viewUser" value="1,2" <% if(pageData.permissions && pageData.permissions.includes(1)) {%>checked<% } %>>
+                                    <label for="viewUser"></label>View User
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="addUser" name="addUser" value="3,4,15" <% if(pageData.permissions && pageData.permissions.includes(3)) {%>checked<% } %>>
+                                    <label for="addUser"></label>Add User
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="updateUser" name="updateUser" value="5,6,15" <% if(pageData.permissions && pageData.permissions.includes(5)) {%>checked<% } %>>
+                                    <label for="updateUser"></label>Update User
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="removeUser" name="removeUser" value="7" <% if(pageData.permissions && pageData.permissions.includes(7)) {%>checked<% } %>>
+                                    <label for="removeUser"></label>Remove User
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- User Management -->
+
+            <hr>
+
+            <!-- Role Management -->
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">Role Management</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="viewRole" name="viewRole" value="8,9" <% if(pageData.permissions && pageData.permissions.includes(8)) {%>checked<% } %>>
+                                    <label for="viewRole"></label>View Role
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="addRole" name="addRole" value="10,11" <% if(pageData.permissions && pageData.permissions.includes(10)) {%>checked<% } %>>
+                                    <label for="addRole"></label>Add Role
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="updateRole" name="updateRole" value="12,13" <% if(pageData.permissions && pageData.permissions.includes(12)) {%>checked<% } %>>
+                                    <label for="updateRole"></label>Update Role
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group clearfix">
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+                                <div class="icheck-primary d-inline">
+                                    <input type="checkbox" id="removeRole" name="removeRole" value="14" <% if(pageData.permissions && pageData.permissions.includes(14)) {%>checked<% } %>>
+                                    <label for="removeRole"></label>Remove Role
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Role Management -->
+
+            <hr>
+        </div>
+
+        <%if(pageData.roleId){%>
+        <input type="hidden" name="id" value="<%=pageData.roleId%>">
+        <%}%>
+
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary" id="submitButtonClick">Submit</button>
+            <button type="reset" class="btn btn-danger">Reset</button>
+        </div>
+    </form>
+</div>
